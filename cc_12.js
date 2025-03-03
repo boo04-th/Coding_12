@@ -37,3 +37,28 @@ document.addEventListener("DOMContentLoaded", function(){ // Encapsulates most o
         myHeading.textContent += " - Updated"; // Updates the revenue
         card.style.backgroundColor = "#fdebd0"; //Changing the background color
     });
+
+     // Task 4: Business Customer Section – Handling Event Bubbling
+        const customerSectionDiv = document.getElementById("customerSection");
+
+        function addCustomerCard(name) { // Creates a function to add a customer card
+            const customerDiv = document.createElement("div");
+            customerDiv.setAttribute("class", "customer-card");
+            customerDiv.textContent = name; ///Setting the text content to the customer's name
+            customerDiv.addEventListener("click", (event) => { // listens for an event
+                console.log("Customer Card Clicked"); // logs the sentence in the console when event is heard
+                event.stopPropagation;
+            });
+            customerSectionDiv.appendChild(customerDiv);
+        };
+        customerSectionDiv.addEventListener("click", () => { // listen for an event "click"
+            console.log("Customer Section Clicked"); // when hears event logs message in the console
+        });
+    
+        //Adding two customer cards dynamically
+        addCustomerCard("First Customer");
+        addCustomerCard("Second Customer");
+        addCustomerCard("Third Customer");
+        
+    });
+    
