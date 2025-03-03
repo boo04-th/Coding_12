@@ -24,3 +24,16 @@ document.addEventListener("DOMContentLoaded", function(){ // Encapsulates most o
 
         return metricDiv; //Returning the created metric card
     };
+
+// Task 2: Updating Dashboard Metrics – Working with NodeLists and Arrays
+    dashboard2.appendChild(createMetricCard("profitCard", "Profit", 160)); //Creating and appending more metric cards 
+    dashboard.appendChild(createMetricCard("expensesCard", "Expenses", 130)); //Creating and appending more metric cards 
+
+    const metricCards = document.querySelectorAll(".metric-card"); //Selecting all metric cards
+    const metricCardsArray = Array.from(metricCards); //Converting the NodeList to an array
+
+    metricCardsArray.forEach((card) => { //Looping through each metric card to update its content and style
+        const myHeading = card.querySelector("h3"); //Selecting the <h3> inside the card
+        myHeading.textContent += " - Updated"; // Updates the revenue
+        card.style.backgroundColor = "#fdebd0"; //Changing the background color
+    });
